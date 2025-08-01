@@ -1,50 +1,73 @@
-
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>RegyLive Overlay</title>
-  <style>
-    body {
-      margin: 0;
-      background: transparent;
-      overflow: hidden;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>RegyLive Twitch Overlay</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+  body {
+    margin: 0;
+    background-color: #1e1e2f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Orbitron', sans-serif;
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Twitch Logo SVG Styling */
+  .twitch-logo {
+    width: 100px;
+    height: 100px;
+    animation: bounce 2s infinite;
+    filter: drop-shadow(0 0 5px #9147ff);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  /* RegyLive Text Animation */
+  .regylive-text {
+    font-size: 3.5rem;
+    color: #9147ff;
+    animation: pulseColor 3s infinite alternate;
+    user-select: none;
+  }
+
+  @keyframes pulseColor {
+    0% {
+      color: #9147ff;
+      text-shadow: 0 0 10px #9147ff;
     }
-    .container {
-      display: flex;
-      align-items: center;
-      animation: fadeIn 2s ease-in-out;
-      padding: 10px;
+    100% {
+      color: #7a36d1;
+      text-shadow: 0 0 20px #7a36d1;
     }
-    img {
-      height: 64px;
-      animation: slideIn 1.5s ease-out;
-    }
-    .text {
-      font-family: Arial, sans-serif;
-      font-size: 48px;
-      color: #9147FF;
-      margin-left: 12px;
-      opacity: 0;
-      animation: textFadeIn 2s ease-in 1s forwards;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideIn {
-      from { transform: translateX(-100px); opacity: 0; }
-      to { transform: translateX(0); opacity: 1; }
-    }
-    @keyframes textFadeIn {
-      to { opacity: 1; }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <img src="https://static-cdn.jtvnw.net/jtv_user_pictures/panel-1337-official-twitchlogo-image-b38e6c6e9c79e9f3-320-320.png" alt="Twitch Logo">
-    <div class="text">RegyLive</div>
-  </div>
+
+<div class="container">
+  <!-- Twitch SVG Logo -->
+  <svg class="twitch-logo" viewBox="0 0 24 24" fill="#9147ff" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+    <path d="M2 2v16h5v4l4-4h5l5-5V2H2zM20 13l-4 4h-5l-2 2v-2H4V4h16v9z"/>
+  </svg>
+
+  <!-- Animated Text -->
+  <div class="regylive-text">RegyLive</div>
+</div>
+
 </body>
 </html>
