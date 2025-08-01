@@ -24,12 +24,13 @@
     gap: 20px;
   }
 
-  /* Twitch Logo Styling */
+  /* Twitch Logo SVG Styling */
   .twitch-logo {
     width: 100px;
     height: 100px;
     animation: bounce 2s infinite;
     filter: drop-shadow(0 0 5px #9147ff);
+    fill: #9147ff;
   }
 
   @keyframes bounce {
@@ -37,4 +38,39 @@
     50% { transform: translateY(-15px); }
   }
 
-  /* Regy*
+  /* RegyLive Text Animation */
+  .regylive-text {
+    font-size: 3.5rem;
+    color: #9147ff;
+    animation: pulseColor 3s infinite alternate;
+    user-select: none;
+  }
+
+  @keyframes pulseColor {
+    0% {
+      color: #9147ff;
+      text-shadow: 0 0 10px #9147ff;
+    }
+    100% {
+      color: #7a36d1;
+      text-shadow: 0 0 20px #7a36d1;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Twitch Logo als eingebettetes SVG -->
+  <svg class="twitch-logo" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" >
+    <path d="M45 29L12 80v147h67v35l50-35h60l67-147V29H45zM199 144l-39 42h-40l-23 18v-18H40V49h159v95z"/>
+    <rect x="100" y="75" width="20" height="50" fill="#fff"/>
+    <rect x="155" y="75" width="20" height="50" fill="#fff"/>
+  </svg>
+
+  <!-- Animated Text -->
+  <div class="regylive-text">RegyLive</div>
+</div>
+
+</body>
+</html>
